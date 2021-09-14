@@ -1,9 +1,9 @@
 import json
 from brain import run_chat
 
-with open('memory/typespecific_responses.json') as json_file:
+with open('memory/typespecific_responses.json', encoding="utf-8") as json_file:
     data = json.load(json_file)
-    print(data)
+    print(data["questions"]["casual1"])
 
 
 def test_get_msg_user():
