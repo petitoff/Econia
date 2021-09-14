@@ -62,4 +62,5 @@ class Brain:
         print(self.data_msg_user_contex)
 
 
+run_chat = Chat()
 run_brain = Brain()
