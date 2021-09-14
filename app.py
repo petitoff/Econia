@@ -1,4 +1,4 @@
-from brain import Chat
+from brain import run_chat
 
 
 def test_get_msg_user():
