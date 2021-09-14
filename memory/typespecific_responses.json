@@ -1,24 +1,35 @@
 {
-  "firstName": "John",
-  "lastName": "Smith",
-  "isAlive": true,
-  "age": 27,
-  "address": {
-    "streetAddress": "21 2nd Street",
-    "city": "New York",
-    "state": "NY",
-    "postalCode": "10021-3100"
-  },
-  "phoneNumbers": [
-    {
-      "type": "home",
-      "number": "212 555-1234"
+  "questions": {
+    "casual1": {
+      "patterns": [
+        "cotam",
+        "ct",
+        "cotamuciebie",
+        "couciebie",
+        "jaksiemasz",
+        "jaksieczujesz",
+        "czywszystkodobrze",
+        "cotamslychac"
+      ],
+      "responses": [
+        "oglądam śmieszne filmiki",
+        "wszystko w porządku",
+        "wszystko dobrze",
+        "czekam aż coś do mnie napiszesz"
+      ]
     },
-    {
-      "type": "office",
-      "number": "646 555-4567"
+    "casual2": {
+      "patterns": [
+        "corobisz",
+        "coporabiasz",
+        "cotamporabiasz",
+        "cotamrobisz"
+      ],
+      "responses": [
+        "dopracowuję swoje poczucie humoru",
+        "przeszukuje internet w poszukiwaniu ciekawostek",
+        "doskonale swoje umiejętności w konwersacjach"
+      ]
     }
-  ],
-  "children": [],
-  "spouse": null
+  }
 }
