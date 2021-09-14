@@ -1,3 +1,6 @@
+import json
+
+
 class Chat:
     def __init__(self):
         self.msg_user = ""  # Variable holding the message sent by the user.
