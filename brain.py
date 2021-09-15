@@ -45,10 +45,9 @@ class Chat:
 class Brain:
     def __init__(self):
         self.data_msg_user_contex = []
-        self.id = 0
 
     def brain_main(self):
-        pass
+        self.cleaning_special_characters()
 
     def put_in_dct(self, user_msg):
         if user_msg[-1] == "?":
@@ -61,8 +60,19 @@ class Brain:
             kind = None
 
         self.data_msg_user_contex.append({"text": user_msg, "kind": kind})
-        self.id += 1
-        print(self.data_msg_user_contex)
+        self.brain_main()
+
+    def cleaning_special_characters(self):
+        translate_from_asci = self.data_msg_user_contex[-1]["text"]
+
+        dct_special_characters = {"!", "?", ".", ",",
+                                  "<", ">", "/", ";", "(", ")", ":", '"', "'", ":"}
+
+        translate_from_asci = translate_from_asci.translate(
+            {ord(i): None for i in dct_special_characters})
+
+        self.data_msg_user_contex[-1].update(
+            {"text": translate_from_asci})
 
 
 run_chat = Chat()
