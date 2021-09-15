@@ -14,7 +14,7 @@ class Chat:
     def msg_analyze(self):
         self.msg_text_unification()
 
-        run_brain.put_in_dct(self.msg_user)
+        run_brain.brain_main(self.msg_user)
 
         self.msg_bot = self.msg_user
         return
@@ -46,8 +46,12 @@ class Brain:
     def __init__(self):
         self.data_msg_user_contex = []
 
-    def brain_main(self):
+    def brain_main(self, user_msg):
+        self.put_in_dct(user_msg)
+
         self.cleaning_special_characters()
+
+        print(self.data_msg_user_contex)
 
     def put_in_dct(self, user_msg):
         if user_msg[-1] == "?":
@@ -60,7 +64,6 @@ class Brain:
             kind = None
 
         self.data_msg_user_contex.append({"text": user_msg, "kind": kind})
-        self.brain_main()
 
     def cleaning_special_characters(self):
         translate_from_asci = self.data_msg_user_contex[-1]["text"]
@@ -73,6 +76,12 @@ class Brain:
 
         self.data_msg_user_contex[-1].update(
             {"text": translate_from_asci})
+
+    def context(self):
+        pass
+
+    def basic_search(self):
+        pass
 
 
 run_chat = Chat()
