@@ -72,7 +72,7 @@ class Brain:
         pass
 
     def basic_search(self):
-        selfmsg_user = self.data_msg_user_contex[-1]["textUniSepcial"]
+        msg_user = self.data_msg_user_contex[-1]["textUniSepcial"]
 
 
 run_chat = Chat()
