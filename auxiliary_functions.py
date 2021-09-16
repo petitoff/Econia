@@ -1,13 +1,16 @@
 import json
 
 
-def search_in_json1(word):
+# Basic Search
+def search_in_json1(word, main):
     with open('memory/word_base.json', encoding="utf-8") as json_file:
         data = json.load(json_file)
 
-        if word[-1]["kind"] == "question":
-            data_question = data["questions"]
+        if main == "question":
+            data = data["questions"]
 
-            for a, b in data_question.items():
-                print(a)
-                print(b)
+        for a, b in data.items():
+            for c, d in b.items():
+                for e, f in d.items():
+                    pattern = e
+                    mining = f

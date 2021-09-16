@@ -76,8 +76,10 @@ class Brain:
         msg_user = self.data_msg_user_context[-1]["textUniSepcial"]
 
     def looking_for_possible_meaning(self):
-        if self.data_msg_user_context[-1]["kind"] == "question":
-            search_in_json1(self.data_msg_user_context)
+        # If the basic context is specified then check if the sentence is meaningless in the database.
+        if self.data_msg_user_context[-1]["kind"] is not None:
+            if self.data_msg_user_context[-1]["kind"] == "question":
+                search_in_json1(self.data_msg_user_context, "question")
 
 
 run_chat = Chat()
