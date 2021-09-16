@@ -1,3 +1,4 @@
+from auxiliary_functions import search_in_json1
 
 
 class Chat:
@@ -12,7 +13,7 @@ class Chat:
 
 class Brain:
     def __init__(self):
-        self.data_msg_user_contex = []
+        self.data_msg_user_context = []
 
     def brain_main(self, user_msg):
         self.put_in_dct(user_msg)
@@ -22,10 +23,10 @@ class Brain:
         self.basic_search()
         self.looking_for_possible_meaning()
 
-        print(self.data_msg_user_contex)
+        print(self.data_msg_user_context)
 
     def put_in_dct(self, user_msg):
-        self.data_msg_user_contex.append(
+        self.data_msg_user_context.append(
             {"textMain": user_msg.replace(" ", "")})
 
         user_msg = self.msg_text_unification(user_msg)
@@ -39,11 +40,11 @@ class Brain:
         else:
             kind = None
 
-        self.data_msg_user_contex[-1].update(
+        self.data_msg_user_context[-1].update(
             {"textUni": user_msg, "kind": kind})
 
     def msg_text_unification(self, user_msg):
-        user_msg = self.data_msg_user_contex[-1]["textMain"]
+        user_msg = self.data_msg_user_context[-1]["textMain"]
         user_msg = user_msg.lower()
 
         dct_polish_special_characters = {
@@ -57,7 +58,7 @@ class Brain:
         return translate_from_asci
 
     def cleaning_special_characters(self):
-        translate_from_asci = self.data_msg_user_contex[-1]["textUni"]
+        translate_from_asci = self.data_msg_user_context[-1]["textUni"]
 
         dct_special_characters = {"!", "?", ".", ",",
                                   "<", ">", "/", ";", "(", ")", ":", '"', "'", ":"}
@@ -65,18 +66,18 @@ class Brain:
         translate_from_asci = translate_from_asci.translate(
             {ord(i): None for i in dct_special_characters})
 
-        self.data_msg_user_contex[-1].update(
+        self.data_msg_user_context[-1].update(
             {"textUniSepcial": translate_from_asci})
 
     def context(self):
         pass
 
     def basic_search(self):
-        msg_user = self.data_msg_user_contex[-1]["textUniSepcial"]
+        msg_user = self.data_msg_user_context[-1]["textUniSepcial"]
 
     def looking_for_possible_meaning(self):
-        if self.data_msg_user_contex[-1]["kind"] == "question":
-            pass
+        if self.data_msg_user_context[-1]["kind"] == "question":
+            search_in_json1(self.data_msg_user_context)
 
 
 run_chat = Chat()
