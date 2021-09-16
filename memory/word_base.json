@@ -1,15 +1,47 @@
 {
     "greetings": {
-        "casual": [
-            "czesc",
-            "hej",
-            "hejka",
-            "siema",
-            "siemka",
-            "siemandero",
-            "siemaneczko",
-            "siemano",
-            "siemasz"
-        ]
+        "casual": {
+            "casual": {
+                "patterns": [
+                    "czesc",
+                    "hej",
+                    "hejka",
+                    "siema",
+                    "siemka"
+                ],
+                "mining": [
+                    "greeting",
+                    "basic",
+                    "appropriate"
+                ]
+            },
+            "casua2": {
+                "patterns": [
+                    "siemandero",
+                    "siemaneczko",
+                    "siemano",
+                    "siemasz"
+                ],
+                "mining": [
+                    "greeting",
+                    "extensive",
+                    "weird"
+                ]
+            }
+        }
+    },
+    "questions": {
+        "words-that-identify-a-sentence-as-a-question": {
+            "basic": {
+                "pattern": [
+                    "czy"
+                ],
+                "mining": [
+                    "question",
+                    "basic",
+                    "obvious-meaning"
+                ]
+            }
+        }
     }
 }
