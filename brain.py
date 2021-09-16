@@ -1,4 +1,3 @@
-import json
 
 
 class Chat:
@@ -21,6 +20,7 @@ class Brain:
         self.cleaning_special_characters()
 
         self.basic_search()
+        self.looking_for_possible_meaning()
 
         print(self.data_msg_user_contex)
 
@@ -73,6 +73,10 @@ class Brain:
 
     def basic_search(self):
         msg_user = self.data_msg_user_contex[-1]["textUniSepcial"]
+
+    def looking_for_possible_meaning(self):
+        if self.data_msg_user_contex[-1]["kind"] == "question":
+            pass
 
 
 run_chat = Chat()
