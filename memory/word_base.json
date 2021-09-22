@@ -1,47 +1,49 @@
 {
-    "greetings": {
-        "casual": {
-            "casual": {
-                "patterns": [
-                    "czesc",
-                    "hej",
-                    "hejka",
-                    "siema",
-                    "siemka"
-                ],
-                "mining": [
-                    "greeting",
-                    "basic",
-                    "appropriate"
-                ]
-            },
-            "casua2": {
-                "patterns": [
-                    "siemandero",
-                    "siemaneczko",
-                    "siemano",
-                    "siemasz"
-                ],
-                "mining": [
-                    "greeting",
-                    "extensive",
-                    "weird"
-                ]
-            }
-        }
-    },
-    "questions": {
-        "words-that-identify-a-sentence-as-a-question": {
-            "basic": {
-                "pattern": [
-                    "czy"
-                ],
-                "mining": [
-                    "question",
-                    "basic",
-                    "obvious-meaning"
-                ]
-            }
-        }
+  "greetings": {
+    "casual": {
+      "casual1": {
+        "patterns": [
+          "czesc",
+          "hej",
+          "hejka",
+          "siema",
+          "siemka"
+        ],
+        "mining": [
+          "casual",
+          "greeting",
+          "basic",
+          "appropriate"
+        ]
+      },
+      "casual2": {
+        "patterns": [
+          "siemandero",
+          "siemaneczko",
+          "siemano",
+          "siemasz"
+        ],
+        "mining": [
+          "casual",
+          "greeting",
+          "extensive",
+          "weird"
+        ]
+      }
     }
+  },
+  "questions": {
+    "words-that-identify-a-sentence-as-a-question": {
+      "basic": {
+        "pattern": [
+          "czy"
+        ],
+        "mining": [
+          "question",
+          "basic",
+          "obvious-meaning"
+        ]
+      }
+    }
+  }
 }
