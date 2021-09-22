@@ -16,6 +16,8 @@ def import_json2():
 
 
 def search_in_list(list_pattern, word):
+    print(list_pattern)
+    print(word)
     patterns = list_pattern["patterns"]
     mining = list_pattern["mining"]
 
@@ -40,5 +42,7 @@ def search_in_json1(word):
 def search_mining(list_mining):
     data = import_json2()
 
-    list_response = data[list_mining[0]][list_mining[1]]
-    return list_response[randint(0, len(list_response)-1)]
+    for i in range(0, len(list_mining)):
+        data = data[list_mining[i]]
+
+    return data[randint(0, len(data) - 1)]
