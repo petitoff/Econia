@@ -1,4 +1,5 @@
 from auxiliary_functions import search_in_json1
+from auxiliary_functions import search_mining
 
 import pyttsx3  # pip install pyttsx3
 import speech_recognition as sr  # pip install speechRecognition
@@ -15,16 +16,6 @@ def speak(audio):
     engine.runAndWait()
 
 
-class Chat:
-    def __init__(self):
-        msg_user = ""  # Variable holding the message sent by the user.
-        self.msg_bot = ""  # Variable holding the message the bot will send.
-
-    def get_msg(self, msg):
-        run_brain.brain_main(msg)
-        return self.msg_bot
-
-
 class Brain:
     def __init__(self):
         self.data_msg_user_context = []
@@ -32,12 +23,10 @@ class Brain:
     def brain_main(self, user_msg):
         self.put_in_dct(user_msg)
 
-        self.cleaning_special_characters()
+        bot_msg = self.looking_for_possible_meaning()
 
-        self.basic_search()
-        self.looking_for_possible_meaning()
-
-        print(self.data_msg_user_context)
+        print(bot_msg)
+        return bot_msg
 
     def put_in_dct(self, user_msg):
         self.data_msg_user_context.append(
@@ -45,17 +34,8 @@ class Brain:
 
         user_msg = self.msg_text_unification(user_msg)
 
-        if user_msg[-1] == "?":
-            kind = "question"
-        elif user_msg[-1] == "!":
-            kind = "order"
-        elif user_msg[-1] == ".":
-            kind = "claim"
-        else:
-            kind = None
-
         self.data_msg_user_context[-1].update(
-            {"textUni": user_msg, "kind": kind})
+            {"textUni": user_msg})
 
     def msg_text_unification(self, user_msg):
         user_msg = self.data_msg_user_context[-1]["textMain"]
@@ -69,10 +49,6 @@ class Brain:
         asci_table = user_msg.maketrans(dct_polish_special_characters)
         # Translate characters from an ascii array to normal text.
         translate_from_asci = user_msg.translate(asci_table)
-        return translate_from_asci
-
-    def cleaning_special_characters(self):
-        translate_from_asci = self.data_msg_user_context[-1]["textUni"]
 
         dct_special_characters = {"!", "?", ".", ",",
                                   "<", ">", "/", ";", "(", ")", ":", '"', "'", ":"}
@@ -80,20 +56,17 @@ class Brain:
         translate_from_asci = translate_from_asci.translate(
             {ord(i): None for i in dct_special_characters})
 
-        self.data_msg_user_context[-1].update(
-            {"textUniSepcial": translate_from_asci})
+        return translate_from_asci
 
     def context(self):
         pass
 
-    def basic_search(self):
-        msg_user = self.data_msg_user_context[-1]["textUniSepcial"]
-
     def looking_for_possible_meaning(self):
-        # If the basic context is specified then check if the sentence is meaningless in the database.
-        if self.data_msg_user_context[-1]["kind"] is not None:
-            if self.data_msg_user_context[-1]["kind"] == "question":
-                search_in_json1(self.data_msg_user_context, "question")
+        user_msg = self.data_msg_user_context[-1]['textUni']
+        mining = search_in_json1(user_msg)
+
+        response = search_mining(mining)
+        return response
 
     def speach_recognation(self):
         r = sr.Recognizer()
@@ -114,5 +87,4 @@ class Brain:
         return query
 
 
-run_chat = Chat()
 run_brain = Brain()
