@@ -1,9 +1,22 @@
 {
   "greetings": {
-    "casual": [
-      "cześć",
-      "hej",
-      "hejka"
-    ]
+    "casual": {
+      "positive": [
+        "cześć",
+        "hej",
+        "hejka"
+      ]
+    }
+  },
+  "questions": {
+    "questions-to-the-bot": {
+      "positive": {
+        "kimjestes": [
+          "jestem sztuczną inteligencją a przynajmniej mam ją udawać",
+          "jestem botem",
+          "jestem zlepkiem różnych algorytmów i sieci neuronowych"
+        ]
+      }
+    }
   }
 }
