@@ -25,19 +25,19 @@ class Brain:
 
         bot_msg = self.looking_for_possible_meaning()
 
-        print(bot_msg)
+        print(self.data_msg_user_context)
         return bot_msg
 
     def put_in_dct(self, user_msg):
         self.data_msg_user_context.append(
             {"textMain": user_msg.replace(" ", "")})
 
-        user_msg = self.msg_text_unification(user_msg)
+        user_msg = self.msg_text_unification()
 
         self.data_msg_user_context[-1].update(
             {"textUni": user_msg})
 
-    def msg_text_unification(self, user_msg):
+    def msg_text_unification(self):
         user_msg = self.data_msg_user_context[-1]["textMain"]
         user_msg = user_msg.lower()
 
