@@ -1,4 +1,9 @@
 from brain import run_chat
+from brain import run_brain
+from brain import speak
+
+
+# run_brain.speach_recognation()
 
 
 def test_get_msg_user():
@@ -8,4 +13,14 @@ def test_get_msg_user():
         print(f"Marcin: {bot_msg}")
 
 
-test_get_msg_user()
+def test_get_voice_user():
+    speak("Dzień dobry proszę pana.")
+    speak("W czym mogę pomóc?")
+    while True:
+        user_msg = run_brain.speach_recognation()  # The function returns what it heard. Otherwise None.
+        bot_msg = run_chat.get_msg(user_msg)
+        speak(bot_msg)
+
+
+# test_get_msg_user()
+test_get_voice_user()
