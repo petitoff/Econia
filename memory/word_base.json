@@ -10,8 +10,8 @@
           "siemka"
         ],
         "mining": [
+          "greetings",
           "casual",
-          "greeting",
           "basic",
           "appropriate"
         ]
@@ -24,8 +24,8 @@
           "siemasz"
         ],
         "mining": [
+          "greetings",
           "casual",
-          "greeting",
           "extensive",
           "weird"
         ]
@@ -33,6 +33,11 @@
     }
   },
   "questions": {
+    "questions-to-the-bot": {
+      "personal1": [
+        "kimsjestes"
+      ]
+    },
     "words-that-identify-a-sentence-as-a-question": {
       "basic": {
         "pattern": [
