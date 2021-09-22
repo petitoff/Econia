@@ -42,6 +42,17 @@
           "positive",
           "kimjestes"
         ]
+      },
+      "personal2": {
+        "patterns": [
+          "czymjestes"
+        ],
+        "mining": [
+          "questions",
+          "questions-to-the-bot",
+          "pejorative",
+          "czymjestes"
+        ]
       }
     },
     "words-that-identify-a-sentence-as-a-question": {
