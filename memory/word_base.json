@@ -12,8 +12,7 @@
         "mining": [
           "greetings",
           "casual",
-          "basic",
-          "appropriate"
+          "positive"
         ]
       },
       "casual2": {
@@ -26,7 +25,6 @@
         "mining": [
           "greetings",
           "casual",
-          "extensive",
           "weird"
         ]
       }
@@ -34,9 +32,17 @@
   },
   "questions": {
     "questions-to-the-bot": {
-      "personal1": [
-        "kimsjestes"
-      ]
+      "personal1": {
+        "patterns": [
+          "kimjestes"
+        ],
+        "mining": [
+          "questions",
+          "questions-to-the-bot",
+          "positive",
+          "kimjestes"
+        ]
+      }
     },
     "words-that-identify-a-sentence-as-a-question": {
       "basic": {
