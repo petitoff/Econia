@@ -1,5 +1,19 @@
 from auxiliary_functions import search_in_json1
 
+import pyttsx3  # pip install pyttsx3
+import speech_recognition as sr  # pip install speechRecognition
+
+"""Preparation of text-to-speech conversion."""
+engine = pyttsx3.init('sapi5')
+voices = engine.getProperty('voices')
+engine.setProperty('rate', 130)
+engine.setProperty('voice', voices[2].id)
+
+
+def speak(audio):
+    engine.say(audio)
+    engine.runAndWait()
+
 
 class Chat:
     def __init__(self):
@@ -80,6 +94,24 @@ class Brain:
         if self.data_msg_user_context[-1]["kind"] is not None:
             if self.data_msg_user_context[-1]["kind"] == "question":
                 search_in_json1(self.data_msg_user_context, "question")
+
+    def speach_recognation(self):
+        r = sr.Recognizer()
+        with sr.Microphone() as source:
+            print("Listening...")
+            r.pause_threshold = 1
+            audio = r.listen(source)
+
+        try:
+            print("Recognizing...")
+            query = r.recognize_google(audio, language='pl-in')
+            print(f"User said: {query}\n")
+
+        except Exception as e:
+            # print(e)
+            print("Say that again please...")
+            return None
+        return query
 
 
 run_chat = Chat()
