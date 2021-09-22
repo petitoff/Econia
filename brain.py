@@ -70,8 +70,10 @@ class Brain:
 
     def speach_recognation(self):
         r = sr.Recognizer()
+
         with sr.Microphone() as source:
             print("Listening...")
+            r.adjust_for_ambient_noise(source, duration=5)
             r.pause_threshold = 1
             audio = r.listen(source)
 
