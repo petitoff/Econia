@@ -1,24 +1,37 @@
-def msg_text_unification(msg_user):
-    msg_user = msg_user.replace(" ", "")
-    msg_user = msg_user.lower()
-
-    dct_polish_special_characters = {
-        "ą": "a", "ć": "c", "ę": "e", "ł": "l",
-        "ń": "n", "ó": "o", "ś": "s", "ź": "z", "ż": "z"}
-
-    dct_special_characters = {"!", "?", ".", ",",
-                              "<", ">", "/", ";", "(", ")", ":", '"', "'", ":"}
-
-    # Searching for Polish characters in the text and finding their equivalents in asci without Polish characters.
-    asci_table = msg_user.maketrans(dct_polish_special_characters)
-    # Translate characters from an ascii array to normal text.
-    translate_from_asci = msg_user.translate(asci_table)
-
-    # Removes characters from text if they are in the dictionary.
-    translate_from_asci = translate_from_asci.translate(
-        {ord(i): None for i in dct_special_characters})
-
-    return translate_from_asci
+import json
 
 
-print(msg_text_unification("Siemka ż!"))
+def import_json():
+    with open('memory/word_base.json', encoding="utf-8") as json_file:
+        data = json.load(json_file)
+        return data
+
+
+def search_in_list(list_pattern, word):
+    print(list_pattern)
+    patterns = list_pattern["patterns"]
+    mining = list_pattern["mining"]
+
+    # print(patterns)
+    # print(mining)
+
+    for i in patterns:
+        if i == word:
+            return mining
+
+    return False
+
+
+data_json = import_json()
+
+
+def search_json():
+    for a, b in data_json.items():
+        for c, d in b.items():
+            for e, f in d.items():
+                asd = search_in_list(f, "czesc")
+                if asd is not False:
+                    return asd
+
+
+print(search_json())
