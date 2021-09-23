@@ -13,10 +13,11 @@ from brain import speak
 
 
 def test_get_voice_user():
-    speak("Dzień dobry proszę pana.")
-    speak("W czym mogę pomóc?")
+    # speak("Dzień dobry proszę pana.")
+    # speak("W czym mogę pomóc?")
     while True:
-        user_msg = run_brain.speach_recognation()  # The function returns what it heard. Otherwise None.
+        # user_msg = run_brain.speach_recognation()  # The function returns what it heard. Otherwise None.
+        user_msg = input(": ")
         if user_msg is not None:
             bot_msg = run_brain.brain_main(user_msg)
             print(bot_msg)
