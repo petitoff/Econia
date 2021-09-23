@@ -39,6 +39,7 @@
         "mining": [
           "questions",
           "questions-to-the-bot",
+          "personal",
           "positive",
           "kimjestes"
         ]
@@ -50,8 +51,20 @@
         "mining": [
           "questions",
           "questions-to-the-bot",
+          "personal",
           "pejorative",
           "czymjestes"
+        ]
+      },
+      "skills1": {
+        "patterns": [
+          "copotrafisz"
+        ],
+        "mining": [
+          "questions",
+          "questions-to-the-bot",
+          "skills",
+          "copotrafisz"
         ]
       }
     },
@@ -64,6 +77,23 @@
           "question",
           "basic",
           "obvious-meaning"
+        ]
+      }
+    }
+  },
+  "questions-for-the-bot-requiring-action": {
+    "basic": {
+      "what-time": {
+        "pattern": [
+          "jakajestgodzina",
+          "jakajestterazgodzina",
+          "którajestterazgodzina"
+        ],
+        "mining": [
+          "bot-action",
+          "questions-for-the-bot-requiring-action",
+          "basic",
+          "what-time"
         ]
       }
     }
