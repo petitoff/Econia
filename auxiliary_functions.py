@@ -16,8 +16,8 @@ def import_json2():
 
 
 def search_in_list(list_pattern, word):
-    print(list_pattern)
-    print(word)
+    # print(list_pattern)
+    # print(word)
     patterns = list_pattern["patterns"]
     mining = list_pattern["mining"]
 
