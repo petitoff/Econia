@@ -1,6 +1,10 @@
 from auxiliary_functions import search_in_json1
+from auxiliary_functions import search_in_json3
+
 from auxiliary_functions import search_mining
 from auxiliary_functions import checking_if_it_requires_action
+
+from auxiliary_functions import taking_action
 
 import pyttsx3  # pip install pyttsx3
 import speech_recognition as sr  # pip install speechRecognition
@@ -64,7 +68,18 @@ class Brain:
 
     def looking_for_possible_meaning(self):
         user_msg = self.data_msg_user_context[-1]['textMain']
+
         # Checking if the user asks for any action
+        try:
+            is_what_action = self.data_msg_user_context[-2]['mining']
+            if is_what_action == "what-action":
+                mining = search_in_json3(user_msg)
+                response = taking_action(mining)
+                return response
+        except IndexError:
+            pass
+        except KeyError:
+            pass
         is_action = checking_if_it_requires_action(user_msg)
         if is_action is not False:
             self.data_msg_user_context[-1].update({"mining": "what-action"})
