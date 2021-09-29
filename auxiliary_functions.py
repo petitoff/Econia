@@ -35,11 +35,14 @@ def search_in_list(list_pattern, word):
 
 # Checking if the user asks for any action
 def checking_if_it_requires_action(user_msg):
-    lst_word_action = ["marcin", "hej marcin", "ej", "czuwasz"]
+    lst_word_action = ["marcin", "hej marcin", "ej", "czuwasz", "jestes"]
+    lst_word_responses = ["tak", "słucham"]
 
     for i in lst_word_action:
         if i == user_msg:
-            return True
+            response = lst_word_responses[randint(0, len(lst_word_responses)-1)]
+            return response
+    return False
 
 
 # Searching in the word database
