@@ -66,8 +66,9 @@ class Brain:
         user_msg = self.data_msg_user_context[-1]['textMain']
         # Checking if the user asks for any action
         is_action = checking_if_it_requires_action(user_msg)
-        if is_action is True:
-            pass
+        if is_action is not False:
+            self.data_msg_user_context[-1].update({"mining": "what-action"})
+            return is_action
 
         # Searching in the word database
         mining = search_in_json1(user_msg)
