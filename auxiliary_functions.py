@@ -2,7 +2,7 @@ import json
 from random import randint
 
 
-# Basic Search
+# Import json file
 def import_json1():
     with open('memory/word_base.json', encoding="utf-8") as json_file:
         data = json.load(json_file)
@@ -16,8 +16,7 @@ def import_json2():
 
 
 def search_in_list(list_pattern, word):
-    # print(list_pattern)
-    # print(word)
+    # Function related to search_in_json1. Looks for the written meanings of words in word_base
     patterns = list_pattern["patterns"]
     mining = list_pattern["mining"]
 
@@ -40,6 +39,7 @@ def search_in_json1(word):
 
 
 def search_mining(list_mining):
+    # Searching for the meaning of the word (sentences) that have been recognized
     data = import_json2()
 
     for i in range(0, len(list_mining)):
