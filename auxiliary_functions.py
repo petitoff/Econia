@@ -15,6 +15,12 @@ def import_json2():
         return data
 
 
+def import_json3():
+    with open('memory/bot_action.json', encoding="utf-8") as json_file:
+        data = json.load(json_file)
+        return data
+
+
 def search_in_list(list_pattern, word):
     # Function related to search_in_json1. Looks for the written meanings of words in word_base
     patterns = list_pattern["patterns"]
@@ -27,6 +33,16 @@ def search_in_list(list_pattern, word):
     return False
 
 
+# Checking if the user asks for any action
+def checking_if_it_requires_action(user_msg):
+    lst_word_action = ["marcin", "hej marcin", "ej", "czuwasz"]
+
+    for i in lst_word_action:
+        if i == user_msg:
+            return True
+
+
+# Searching in the word database
 def search_in_json1(word):
     data = import_json1()
 
