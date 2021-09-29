@@ -1,5 +1,6 @@
 import json
 from random import randint
+import time
 
 
 # Import json file
@@ -35,14 +36,35 @@ def search_in_list(list_pattern, word):
 
 # Checking if the user asks for any action
 def checking_if_it_requires_action(user_msg):
-    lst_word_action = ["marcin", "hej marcin", "ej", "czuwasz", "jestes"]
+    lst_word_action = ["zosia", "hej zosia", "ej", "czuwasz", "jestes"]
     lst_word_responses = ["tak", "słucham"]
 
     for i in lst_word_action:
         if i == user_msg:
-            response = lst_word_responses[randint(0, len(lst_word_responses)-1)]
+            response = lst_word_responses[randint(0, len(lst_word_responses) - 1)]
             return response
     return False
+
+
+def search_in_json3(word):
+    data = import_json3()
+
+    for a, b in data.items():
+        for c, d in b.items():
+            for e, f in d.items():
+                print(f)
+                asd = search_in_list(f, word)
+                if asd is not False:
+                    return asd
+
+
+def taking_action(mining):
+    if mining[0] == "bot-action":
+        if mining[1] == "what-time":
+            if mining[2] == "now":
+                t = time.localtime()
+                current_time = time.strftime("%H:%M", t)
+                return f"Aktualnie w twojej lokalizacji jest {current_time}"
 
 
 # Searching in the word database
