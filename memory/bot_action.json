@@ -2,7 +2,7 @@
   "questions-for-the-bot-requiring-action": {
     "basic": {
       "what-time": {
-        "pattern": [
+        "patterns": [
           "jakajestgodzina",
           "ktorajestgodzina",
           "jakajestterazgodzina",
