@@ -92,22 +92,5 @@
         ]
       }
     }
-  },
-  "questions-for-the-bot-requiring-action": {
-    "basic": {
-      "what-time": {
-        "pattern": [
-          "jakajestgodzina",
-          "jakajestterazgodzina",
-          "którajestterazgodzina"
-        ],
-        "mining": [
-          "bot-action",
-          "questions-for-the-bot-requiring-action",
-          "basic",
-          "what-time"
-        ]
-      }
-    }
   }
 }
