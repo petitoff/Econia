@@ -46,6 +46,18 @@
       },
       "personal2": {
         "patterns": [
+          "cotam"
+        ],
+        "mining": [
+          "questions",
+          "questions-to-the-bot",
+          "personal",
+          "positive",
+          "cotam"
+        ]
+      },
+      "personal3": {
+        "patterns": [
           "czymjestes"
         ],
         "mining": [
