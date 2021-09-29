@@ -1,5 +1,6 @@
 from auxiliary_functions import search_in_json1
 from auxiliary_functions import search_mining
+from auxiliary_functions import checking_if_it_requires_action
 
 import pyttsx3  # pip install pyttsx3
 import speech_recognition as sr  # pip install speechRecognition
@@ -35,7 +36,7 @@ class Brain:
         user_msg = self.msg_text_unification()
 
         self.data_msg_user_context[-1].update(
-            {"textUni": user_msg})
+            {"textMain": user_msg})
 
     def msg_text_unification(self):
         user_msg = self.data_msg_user_context[-1]["textMain"]
@@ -62,11 +63,21 @@ class Brain:
         pass
 
     def looking_for_possible_meaning(self):
-        user_msg = self.data_msg_user_context[-1]['textUni']
+        user_msg = self.data_msg_user_context[-1]['textMain']
+        # Checking if the user asks for any action
+        is_action = checking_if_it_requires_action(user_msg)
+        if is_action is True:
+            pass
+
+        # Searching in the word database
         mining = search_in_json1(user_msg)
+        self.data_msg_user_context[-1].update({"mining": mining})
 
         response = search_mining(mining)
         return response
+
+    def start_action(self):
+        pass
 
     def speach_recognation(self):
         r = sr.Recognizer()
