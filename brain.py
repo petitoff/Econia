@@ -83,14 +83,16 @@ class Brain:
         r = sr.Recognizer()
 
         with sr.Microphone() as source:
+            # r.adjust_for_ambient_noise(source, duration=1)
             print("Listening...")
-            r.adjust_for_ambient_noise(source, duration=5)
             r.pause_threshold = 1
-            audio = r.listen(source)
+            # audio = r.listen(source)
+            audio = r.record(source, duration=5)
 
         try:
             print("Recognizing...")
             query = r.recognize_google(audio, language='pl-in')
+            # query = r.recognize_sphinx(audio, language='pl-in')
             print(f"User said: {query}\n")
 
         except Exception as e:
