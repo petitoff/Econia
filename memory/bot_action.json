@@ -4,14 +4,14 @@
       "what-time": {
         "pattern": [
           "jakajestgodzina",
+          "ktorajestgodzina",
           "jakajestterazgodzina",
           "którajestterazgodzina"
         ],
         "mining": [
           "bot-action",
-          "questions-for-the-bot-requiring-action",
-          "basic",
-          "what-time"
+          "what-time",
+          "now"
         ]
       }
     }
